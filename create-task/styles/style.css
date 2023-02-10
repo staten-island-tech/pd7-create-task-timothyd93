@@ -1,0 +1,19 @@
+@import url(variable.css);
+#header {
+  margin-bottom: 5rem;
+}
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.key {
+    background-color: gray;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+}
+.lbtn {
+    background-color: transparent;
+    border: transparent;
+}
