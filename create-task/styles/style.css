@@ -8,7 +8,7 @@
   justify-content: space-evenly;
 }
 .key {
-    background-color: gray;
+    background-color: red;
     height: 2rem;
     width: 2rem;
     text-align: center;
@@ -16,4 +16,6 @@
 .lbtn {
     background-color: transparent;
     border: transparent;
+    height: 2rem;
+    width: 2rem;
 }
