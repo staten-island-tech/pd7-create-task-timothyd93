@@ -1,6 +1,6 @@
 const DOMSelectors = {
   content: document.getElementById("content"),
-  lbtn: document.querySelectorAll("lbtn"),
+  btn: document.querySelectorAll(".btn"),
 };
 
 export { DOMSelectors };

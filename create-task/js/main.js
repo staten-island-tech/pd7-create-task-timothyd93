@@ -33,8 +33,13 @@ function displayKeyboard() {
   alphabet.forEach((letter) =>
     DOMSelectors.content.insertAdjacentHTML(
       "beforeend",
-      `<div class="key"> <button type=button class="lbtn">${letter}  </button> </div>`
+      ` <button type="button" class="btn">${letter}  </button> `
     )
   );
 }
 displayKeyboard();
+DOMSelectors.btn.forEach((button) =>
+  button.addEventListener("click", function () {
+    console.log("Here");
+  })
+);
