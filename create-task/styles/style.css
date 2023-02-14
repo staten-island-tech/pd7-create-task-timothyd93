@@ -1,11 +1,12 @@
 @import url(variable.css);
 #header {
   margin-bottom: 5rem;
+  text-align: center;
 }
 #content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .key {
     background-color: red;
@@ -13,9 +14,11 @@
     width: 2rem;
     text-align: center;
 }
-.lbtn {
-    /* background-color: transparent;
-    border: transparent;
-    height: 2rem;
-    width: 2rem; */
+
+
+#searchbar {
+  font-size: 2rem;
+}
+#button {
+  font-size: 1rem;
 }

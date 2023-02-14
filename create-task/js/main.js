@@ -1,45 +1,32 @@
 import { DOMSelectors } from "./dom";
 import "../styles/style.css";
 
-function displayKeyboard() {
-  const alphabet = [
-    `a`,
-    `b`,
-    `c`,
-    `d`,
-    `e`,
-    `f`,
-    `g`,
-    `h`,
-    `i`,
-    `j`,
-    `k`,
-    `l`,
-    `m`,
-    `n`,
-    `o`,
-    `p`,
-    `q`,
-    `r`,
-    `s`,
-    `t`,
-    `u`,
-    `v`,
-    `w`,
-    `x`,
-    `y`,
-    `z`,
-  ];
-  alphabet.forEach((letter) =>
-    DOMSelectors.content.insertAdjacentHTML(
-      "beforeend",
-      ` <button type="button" class="btn">${letter}  </button> `
-    )
-  );
+function getRandomWord() {
+  const URL = `https://random-word-api.herokuapp.com/word`;
+  async function getData(URL) {
+    try {
+      const response = await fetch(URL);
+      const data = await response.json();
+      console.log(data[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  getData(URL);
 }
-displayKeyboard();
-DOMSelectors.btn.forEach((button) =>
-  button.addEventListener("click", function () {
-    console.log("Here");
-  })
-);
+DOMSelectors.testbtn.addEventListener("click", function () {
+  // getRandomWord();
+  checkWord();
+});
+
+function checkWord() {
+  // const correct = getRandomWord();
+  const guess = DOMSelectors.searchbar.value;
+  if ((guess = getRandomWord())) {
+    console.log(`good`);
+  } else {
+    console.log(`bad`);
+  }
+  console.log(guess);
+  console.log(correct);
+}
