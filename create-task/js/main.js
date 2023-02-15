@@ -8,6 +8,7 @@ function getRandomWord() {
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data[0]);
+      console.log(data[0].length);
     } catch (error) {
       console.log(error);
     }
@@ -15,18 +16,47 @@ function getRandomWord() {
   getData(URL);
 }
 DOMSelectors.testbtn.addEventListener("click", function () {
-  // getRandomWord();
-  checkWord();
+  getRandomWord();
 });
 
-function checkWord() {
-  // const correct = getRandomWord();
-  const guess = DOMSelectors.searchbar.value;
-  if ((guess = getRandomWord())) {
-    console.log(`good`);
-  } else {
-    console.log(`bad`);
-  }
-  console.log(guess);
-  console.log(correct);
+function displayKeyboard() {
+  let alphabet = [
+    `a`,
+    `b`,
+    `c`,
+    `d`,
+    `e`,
+    `f`,
+    `g`,
+    `h`,
+    `i`,
+    `j`,
+    `k`,
+    `l`,
+    `m`,
+    `n`,
+    `o`,
+    `p`,
+    `q`,
+    `r`,
+    `s`,
+    `t`,
+    `u`,
+    `v`,
+    `w`,
+    `x`,
+    `y`,
+    `z`,
+  ];
+  alphabet.forEach((letter) =>
+    DOMSelectors.content.insertAdjacentHTML(
+      "beforeend",
+      `<button type=button class="lbtn">${letter}  </button> `
+    )
+  );
 }
+displayKeyboard();
+
+document
+  .querySelectorAll(".lbtn")
+  .forEach((button) => button.addEventListener("click", console.log));
