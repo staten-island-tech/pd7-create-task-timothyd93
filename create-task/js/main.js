@@ -9,13 +9,19 @@ function getRandomWord() {
       const data = await response.json();
       console.log(data[0]);
       console.log(data[0].length);
+      let x = 0;
+      do {
+        DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
+        x = x + 1;
+      } while (x < data[0].length);
     } catch (error) {
       console.log(error);
     }
   }
   getData(URL);
 }
-DOMSelectors.testbtn.addEventListener("click", function () {
+DOMSelectors.startbtn.addEventListener("click", function () {
+  removeWord();
   getRandomWord();
 });
 
@@ -57,6 +63,9 @@ function displayKeyboard() {
 }
 displayKeyboard();
 
+function removeWord() {
+  DOMSelectors.word.innerHTML = "";
+}
 document
   .querySelectorAll(".lbtn")
   .forEach((button) => button.addEventListener("click", console.log));

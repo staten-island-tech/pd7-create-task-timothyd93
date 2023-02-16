@@ -22,3 +22,10 @@
 #button {
   font-size: 1rem;
 }
+#word{
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
