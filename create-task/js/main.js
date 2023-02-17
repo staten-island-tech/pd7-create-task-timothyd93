@@ -14,6 +14,7 @@ function getRandomWord() {
         DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
         x = x + 1;
       } while (x < data[0].length);
+      DOMSelectors.lives.innerHTML = "Lives: 10";
     } catch (error) {
       console.log(error);
     }
@@ -66,6 +67,18 @@ displayKeyboard();
 function removeWord() {
   DOMSelectors.word.innerHTML = "";
 }
-document
-  .querySelectorAll(".lbtn")
-  .forEach((button) => button.addEventListener("click", console.log));
+
+function minusLife() {
+  let x = 9;
+  if (condition) {
+    DOMSelectors.lives.innerHTML = `Lives: ${x}`;
+  } else {
+    x = x - 1;
+  }
+}
+
+document.querySelectorAll(".lbtn").forEach((button) =>
+  button.addEventListener("click", function () {
+    minusLife();
+  })
+);
