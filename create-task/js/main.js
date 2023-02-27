@@ -1,30 +1,55 @@
+import { words } from "./array";
 import { DOMSelectors } from "./dom";
 import "../styles/style.css";
+// function getRandomWord() {
+//   const URL = `https://random-word-api.herokuapp.com/word`;
+//   async function getData(URL) {
+//     try {
+//       const response = await fetch(URL);
+//       const data = await response.json();
+//       console.log(data[0]);
+//       console.log(data[0].length);
+// let x = 0;
+// do {
+//   DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
+//   x = x + 1;
+// } while (x < data[0].length);
+//       DOMSelectors.lives.innerHTML = "Lives: 10";
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   getData(URL);
+// }
 
 function getRandomWord() {
-  const URL = `https://random-word-api.herokuapp.com/word`;
-  async function getData(URL) {
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-      console.log(data[0]);
-      console.log(data[0].length);
-      let x = 0;
-      do {
-        DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
-        x = x + 1;
-      } while (x < data[0].length);
-      DOMSelectors.lives.innerHTML = "Lives: 10";
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  getData(URL);
+  const wordIndex = Math.floor(Math.random() * words.length);
+  const word = words[wordIndex];
+  console.log(word);
+  let x = 0;
+  do {
+    DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
+    x = x + 1;
+  } while (x < word.length);
 }
+
 DOMSelectors.startbtn.addEventListener("click", function () {
   removeWord();
   getRandomWord();
 });
+
+function removeWord() {
+  DOMSelectors.word.innerHTML = "";
+}
+
+function showWord() {}
+
+function minusLife() {
+  console.log("works");
+}
+
+const letter = document.getElementsByClassName("lbtn");
+console.log(letter);
 
 function displayKeyboard() {
   let alphabet = [
@@ -63,19 +88,6 @@ function displayKeyboard() {
   );
 }
 displayKeyboard();
-
-function removeWord() {
-  DOMSelectors.word.innerHTML = "";
-}
-
-function minusLife() {
-  let x = 9;
-  if (condition) {
-    DOMSelectors.lives.innerHTML = `Lives: ${x}`;
-  } else {
-    x = x - 1;
-  }
-}
 
 document.querySelectorAll(".lbtn").forEach((button) =>
   button.addEventListener("click", function () {
