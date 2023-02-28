@@ -22,17 +22,6 @@ import "../styles/style.css";
 //   getData(URL);
 // }
 
-function getRandomWord() {
-  const wordIndex = Math.floor(Math.random() * words.length);
-  const word = words[wordIndex];
-  console.log(word);
-  let x = 0;
-  do {
-    DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
-    x = x + 1;
-  } while (x < word.length);
-}
-
 DOMSelectors.startbtn.addEventListener("click", function () {
   removeWord();
   getRandomWord();
@@ -41,15 +30,6 @@ DOMSelectors.startbtn.addEventListener("click", function () {
 function removeWord() {
   DOMSelectors.word.innerHTML = "";
 }
-
-function showWord() {}
-
-function minusLife() {
-  console.log("works");
-}
-
-const letter = document.getElementsByClassName("lbtn");
-console.log(letter);
 
 function displayKeyboard() {
   let alphabet = [
@@ -88,9 +68,25 @@ function displayKeyboard() {
   );
 }
 displayKeyboard();
-
-document.querySelectorAll(".lbtn").forEach((button) =>
-  button.addEventListener("click", function () {
-    minusLife();
-  })
-);
+function getRandomWord() {
+  const wordIndex = Math.floor(Math.random() * words.length);
+  const word = words[wordIndex];
+  console.log(word);
+  const correctLetters = word.split(``);
+  console.log(correctLetters);
+  document.querySelectorAll(".lbtn").forEach((button) =>
+    button.addEventListener("click", function () {
+      console.log(button.innerHTML);
+      if (correctLetters.includes(button.innerHTML) === true) {
+        console.log(`Good`);
+      } else {
+        console.log(`Bad`);
+      }
+    })
+  );
+  let x = 0;
+  do {
+    DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
+    x = x + 1;
+  } while (x < word.length);
+}
