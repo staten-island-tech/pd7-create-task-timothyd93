@@ -68,6 +68,7 @@ function displayKeyboard() {
   );
 }
 displayKeyboard();
+
 function getRandomWord() {
   const wordIndex = Math.floor(Math.random() * words.length);
   const word = words[wordIndex];
@@ -76,8 +77,11 @@ function getRandomWord() {
   console.log(correctLetters);
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {
-      console.log(button.innerHTML);
-      if (correctLetters.includes(button.innerHTML) === true) {
+      // console.log(button.innerHTML);
+      const thisLetter = button.innerHTML;
+      console.log(thisLetter[0]);
+      console.log(correctLetters);
+      if (correctLetters.includes(thisLetter[0])) {
         console.log(`Good`);
       } else {
         console.log(`Bad`);
