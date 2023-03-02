@@ -78,10 +78,7 @@ function getRandomWord() {
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {
       // console.log(button.innerHTML);
-      const thisLetter = button.innerHTML;
-      console.log(thisLetter[0]);
-      console.log(correctLetters);
-      if (correctLetters.includes(thisLetter[0])) {
+      if (correctLetters.includes(button.innerHTML[0])) {
         console.log(`Good`);
       } else {
         console.log(`Bad`);
