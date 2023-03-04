@@ -74,20 +74,31 @@ function getRandomWord() {
   const word = words[wordIndex];
   console.log(word);
   const correctLetters = word.split(``);
+  const guessedWord = [];
+  correctLetters.forEach((letter) => guessedWord.push(`_`));
+  console.log(guessedWord);
   console.log(correctLetters);
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {
-      // console.log(button.innerHTML);
       if (correctLetters.includes(button.innerHTML[0])) {
-        console.log(`Good`);
+        const indices = [];
+        let index = correctLetters.indexOf(button.innerHTML[0]);
+        while (index != -1) {
+          indices.push(index);
+          index = correctLetters.indexOf(button.innerHTML[0], index + 1);
+        }
+        console.log(indices);
+        indices.forEach(
+          (index) => (guessedWord[index] = correctLetters[index])
+        );
+        console.log(guessedWord);
+        DOMSelectors.word.innerHTML = "";
+        DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord);
       } else {
         console.log(`Bad`);
       }
     })
   );
-  let x = 0;
-  do {
-    DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
-    x = x + 1;
-  } while (x < word.length);
+
+  DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord);
 }
