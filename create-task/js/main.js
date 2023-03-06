@@ -3,13 +3,8 @@ import { DOMSelectors } from "./dom";
 import "../styles/style.css";
 
 DOMSelectors.startbtn.addEventListener("click", function () {
-  removeWord();
   getRandomWord();
 });
-
-function removeWord() {
-  DOMSelectors.word.innerHTML = "";
-}
 
 function displayKeyboard() {
   let alphabet = [
@@ -49,13 +44,13 @@ function displayKeyboard() {
 }
 displayKeyboard();
 
-function getRandomWord() {
+function getRandomWord(x) {
   DOMSelectors.lives.innerHTML = `You have 10 lives left`;
   const wordIndex = Math.floor(Math.random() * words.length);
   const word = words[wordIndex];
   const correctLetters = word.split(``);
   const guessedWord = [];
-  let x = 10;
+  x = 10;
   correctLetters.forEach((letter) => guessedWord.push(`_`));
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {
