@@ -1,26 +1,6 @@
 import { words } from "./array";
 import { DOMSelectors } from "./dom";
 import "../styles/style.css";
-// function getRandomWord() {
-//   const URL = `https://random-word-api.herokuapp.com/word`;
-//   async function getData(URL) {
-//     try {
-//       const response = await fetch(URL);
-//       const data = await response.json();
-//       console.log(data[0]);
-//       console.log(data[0].length);
-// let x = 0;
-// do {
-//   DOMSelectors.word.insertAdjacentHTML("beforeend", `_ `);
-//   x = x + 1;
-// } while (x < data[0].length);
-//       DOMSelectors.lives.innerHTML = "Lives: 10";
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-//   getData(URL);
-// }
 
 DOMSelectors.startbtn.addEventListener("click", function () {
   removeWord();
@@ -70,16 +50,17 @@ function displayKeyboard() {
 displayKeyboard();
 
 function getRandomWord() {
+  DOMSelectors.lives.innerHTML = `You have 10 lives left`;
   const wordIndex = Math.floor(Math.random() * words.length);
   const word = words[wordIndex];
-  console.log(word);
   const correctLetters = word.split(``);
   const guessedWord = [];
+  let x = 10;
+  console.log(word);
   correctLetters.forEach((letter) => guessedWord.push(`_`));
-  console.log(guessedWord);
-  console.log(correctLetters);
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {
+      button.style.color = "#FF0000";
       if (correctLetters.includes(button.innerHTML[0])) {
         const indices = [];
         let index = correctLetters.indexOf(button.innerHTML[0]);
@@ -87,15 +68,18 @@ function getRandomWord() {
           indices.push(index);
           index = correctLetters.indexOf(button.innerHTML[0], index + 1);
         }
-        console.log(indices);
         indices.forEach(
           (index) => (guessedWord[index] = correctLetters[index])
         );
-        console.log(guessedWord);
         DOMSelectors.word.innerHTML = "";
         DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord);
       } else {
-        console.log(`Bad`);
+        x--;
+        DOMSelectors.lives.innerHTML = `You have ${x} lives left, you guessed incorrectly`;
+        if (x > 0) {
+        } else {
+          DOMSelectors.lives.innerHTML = `You ran out of lives, you lost! The word was ${word}`;
+        }
       }
     })
   );
