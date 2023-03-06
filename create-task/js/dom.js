@@ -4,6 +4,7 @@ const DOMSelectors = {
   startbtn: document.getElementById("start"),
   word: document.getElementById("word"),
   lives: document.getElementById("lives"),
+  lossmsg: document.getElementById("lossmsg"),
 };
 
 export { DOMSelectors };

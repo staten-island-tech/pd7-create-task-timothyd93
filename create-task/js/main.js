@@ -79,6 +79,7 @@ function getRandomWord() {
         if (x > 0) {
         } else {
           DOMSelectors.lives.innerHTML = `You ran out of lives, you lost! The word was ${word}`;
+          DOMSelectors.lossmsg.innerHTML = `GAMEOVER`;
         }
       }
     })
