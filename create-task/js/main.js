@@ -72,18 +72,39 @@ function getRandomWord() {
           (index) => (guessedWord[index] = correctLetters[index])
         );
         DOMSelectors.word.innerHTML = "";
-        DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord);
+        DOMSelectors.word.insertAdjacentHTML(
+          "beforeend",
+          guessedWord.join(" ")
+        );
+        const correctGuess = correctLetters.join(" ");
+        if (DOMSelectors.word.innerHTML === correctGuess) {
+          DOMSelectors.winmsg.innerHTML = "Congratulations, you win!";
+          DOMSelectors.refresh.insertAdjacentHTML(
+            "beforeend",
+            `<button type=button>Click to play again</button>`
+          );
+          DOMSelectors.refresh.addEventListener("click", function () {
+            location.reload();
+          });
+        } else {
+        }
       } else {
         x--;
-        DOMSelectors.lives.innerHTML = `You have ${x} lives left, you guessed incorrectly`;
+        DOMSelectors.lives.innerHTML = `You have ${x} lives left`;
         if (x > 0) {
         } else {
-          DOMSelectors.lives.innerHTML = `You ran out of lives, you lost! The word was ${word}`;
+          DOMSelectors.lives.innerHTML = `You ran out of lives, you lost! The word was ${word}.`;
           DOMSelectors.lossmsg.innerHTML = `GAMEOVER`;
+          DOMSelectors.refresh.insertAdjacentHTML(
+            "beforeend",
+            `<button type=button>Click to play again</button>`
+          );
+          DOMSelectors.refresh.addEventListener("click", function () {
+            location.reload();
+          });
         }
       }
     })
   );
-
-  DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord);
+  DOMSelectors.word.insertAdjacentHTML("beforeend", guessedWord.join(" "));
 }

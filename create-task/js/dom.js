@@ -5,6 +5,8 @@ const DOMSelectors = {
   word: document.getElementById("word"),
   lives: document.getElementById("lives"),
   lossmsg: document.getElementById("lossmsg"),
+  refresh: document.getElementById("refreshbtn"),
+  winmsg: document.getElementById("winmsg"),
 };
 
 export { DOMSelectors };
