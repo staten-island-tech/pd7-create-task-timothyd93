@@ -41,7 +41,7 @@ function displayKeyboard() {
     `z`,
   ];
   alphabet.forEach((letter) =>
-    DOMSelectors.content.insertAdjacentHTML(
+    DOMSelectors.keyboard.insertAdjacentHTML(
       "beforeend",
       `<button type=button class="lbtn">${letter}  </button> `
     )
@@ -56,7 +56,6 @@ function getRandomWord() {
   const correctLetters = word.split(``);
   const guessedWord = [];
   let x = 10;
-  console.log(word);
   correctLetters.forEach((letter) => guessedWord.push(`_`));
   document.querySelectorAll(".lbtn").forEach((button) =>
     button.addEventListener("click", function () {

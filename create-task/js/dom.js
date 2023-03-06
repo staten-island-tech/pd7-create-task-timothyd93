@@ -1,5 +1,5 @@
 const DOMSelectors = {
-  content: document.getElementById("content"),
+  keyboard: document.getElementById("keyboard"),
   btn: document.querySelectorAll(".btn"),
   startbtn: document.getElementById("start"),
   word: document.getElementById("word"),

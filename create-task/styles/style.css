@@ -1,12 +1,19 @@
 @import url(variable.css);
 #header {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
-#content {
+
+#start {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem;
 }
 .key {
     background-color: red;
@@ -15,19 +22,30 @@
     text-align: center;
 }
 
+#lives{
+  margin-top: 1rem;
+}
 .msg {
   text-align: center;
 }
 #searchbar {
   font-size: 2rem;
 }
-#button {
-  font-size: 1rem;
-}
+
 #word{
   text-align: center;
   font-size: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#container {
+  background-color:#F4F0E0;
+}
+
+.lbtn {
+  margin: 3px;
+  height: 25px;
+  width: 25px;
 }
