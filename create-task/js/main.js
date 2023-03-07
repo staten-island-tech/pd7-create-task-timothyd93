@@ -45,6 +45,7 @@ function displayKeyboard() {
 displayKeyboard();
 
 function getRandomWord(x) {
+  DOMSelectors.startbtn.remove();
   DOMSelectors.lives.innerHTML = `You have 10 lives left`;
   const wordIndex = Math.floor(Math.random() * words.length);
   const word = words[wordIndex];
